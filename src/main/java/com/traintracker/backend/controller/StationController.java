@@ -31,6 +31,16 @@ public class StationController {
         return stationService.getStationById(id);
     }
 
+    @GetMapping("/code/{stationCode}")
+    public Station getByStationCode(@PathVariable String stationCode) {
+        return stationService.getByStationCode(stationCode);
+    }
+
+    @GetMapping("/search")
+    public List<Station> searchByName(@RequestParam String name) {
+        return stationService.searchByName(name);
+    }
+
     @PutMapping("/{id}")
     public Station updateStation(@PathVariable Long id, @RequestBody Station station){
         return stationService.updateStation(id, station);
