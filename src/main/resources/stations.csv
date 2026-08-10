@@ -1,0 +1,7 @@
+stationCode,stationName,state,zone,division,latitude,longitude
+NDLS,New Delhi,Delhi,Northern Railway,Delhi,28.643,77.219
+DLI,Old Delhi,Delhi,Northern Railway,Delhi,28.665,77.227
+CNB,Kanpur Central,Uttar Pradesh,Northern Railway,Prayagraj,26.449,80.331
+PRYJ,Prayagraj Junction,Uttar Pradesh,North Central Railway,Prayagraj,25.435,81.846
+BSB,Varanasi Junction,Uttar Pradesh,North Eastern Railway,Varanasi,25.317,82.973
+PNBE,Patna Junction,Bihar,East Central Railway,Danapur,25.594,85.137

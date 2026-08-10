@@ -1,8 +1,11 @@
 package com.traintracker.backend.controller;
 
+import com.traintracker.backend.dto.ImportSummaryResponse;
 import com.traintracker.backend.entity.Station;
+import com.traintracker.backend.service.StationCsvService;
 import com.traintracker.backend.service.StationService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -11,14 +14,26 @@ import java.util.List;
 public class StationController {
 
     private final StationService stationService;
+    private final StationCsvService stationCsvService;
 
-    public StationController(StationService stationService) {
+    public StationController(StationService stationService, StationCsvService stationCsvService) {
         this.stationService = stationService;
+        this.stationCsvService = stationCsvService;
     }
 
     @PostMapping
     public Station saveStation(@RequestBody Station station) {
         return stationService.saveStation(station);
+    }
+
+    @PostMapping("/import")
+    public ImportSummaryResponse importStations() {
+        return stationCsvService.importStations();
+    }
+
+    @PostMapping("/upload")
+    public ImportSummaryResponse uploadStations(@RequestParam("file") MultipartFile file) {
+        return stationCsvService.importStations(file);
     }
 
     @GetMapping
