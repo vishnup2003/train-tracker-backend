@@ -11,25 +11,25 @@ import java.util.List;
 @RequestMapping("/api/routes")
 public class TrainRouteController {
 
-    private final TrainRouteService service;
+    private final TrainRouteService trainRouteService;
 
-    public TrainRouteController(TrainRouteService service) {
-        this.service = service;
+    public TrainRouteController(TrainRouteService trainRouteService) {
+        this.trainRouteService = trainRouteService;
     }
 
     @PostMapping
     public TrainRoute addStop(@RequestBody TrainRoute route) {
-        return service.save(route);
+        return trainRouteService.save(route);
     }
 
     @GetMapping("/{trainNumber}")
     public List<TrainRouteDTO> getRoute(@PathVariable String trainNumber) {
-        return service.getRoute(trainNumber);
+        return trainRouteService.getRoute(trainNumber);
     }
 
     @DeleteMapping("/train/{trainNumber}")
     public String deleteByTrain(@PathVariable String trainNumber) {
-        service.deleteByTrainNumber(trainNumber);
+        trainRouteService.deleteByTrainNumber(trainNumber);
         return "All routes deleted for train " + trainNumber;
     }
 }
